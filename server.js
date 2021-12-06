@@ -54,5 +54,8 @@ const generatePDF = (location, originalFileName, res) => {
 }
 
 var server = app.listen(process.env.PORT || 3030, function() {
+    if (!fs.existsSync(__dirname + '/uploads/' )){
+        fs.mkdirSync(__dirname + '/uploads/' );
+    }
     console.log('Listening on port %d', server.address().port);
 });
